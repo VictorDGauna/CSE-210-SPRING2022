@@ -3,39 +3,93 @@ fIRST VERSION
 BY
 VICTOR DANIEL GAUNA CSE-210 SPRING 2022
 '''
-board = [
-    "-","-","-",
-    "-","-","-",
-    "-","-","-"]
-def main():
-    display_board()
 
 
-def play():
-    print("Start the Game")
+boardToe = {'1': ' ' , '2': ' ' , '3': ' ' ,
+            '4': ' ' , '5': ' ' , '6': ' ' ,
+            '7': ' ' , '8': ' ' , '9': ' ' }
 
-    for i in range(4):
-        print("Turn PLayer 1 with a 'X'")
-        val="X"
-        game(valor)
-        for j in range(3):
-            print("Turn PLayer 2 with a 'O'")
-            val="="
-            game(valor)
-def game(valor):
-    position= int(input("Choose a position from 1 at 9"))
+board_keys = []
+
+for key in boardToe:
+    board_keys.append(key)
 
 
+def printBoard(board):
+    print(board['1'] + '|' + board['2'] + '|' + board['3'],'1' + '|' + '2' + '|' + '3')
+    print('-+-+-')
+    print(board['4'] + '|' + board['5'] + '|' + board['6'],'4' + '|' + '5' + '|' + '6')
+    print('-+-+-')
+    print(board['7'] + '|' + board['8'] + '|' + board['9'],'7' + '|' + '8' + '|' + '9')
+
+def game():
+
+    turn = 'X'
+    count = 0
 
 
+    for i in range(10):
+        printBoard(boardToe)
+        print("It's your turn," + turn +" "+ "choose a square (1-9):")
 
-def display_board():
-    print("\n")
-    print(board[0] ,"|",board[1],"|",board[2], "1|2|3" )
-    print(board[3] ,"|",board[4],"|",board[5], "4|5|6" )
-    print(board[6] ,"|",board[7],"|",board[8], "7|8|9" )
+        move = input()        
 
+        if boardToe[move] == ' ':
+            boardToe[move] = turn
+            count += 1
+        else:
+            print("That place is already filled.\nMove to which place?")
+            continue
+
+        if count >= 5:
+            if boardToe['7'] == boardToe['8'] == boardToe['9'] != ' ': 
+                printBoard(boardToe)
+                print("\nGood game. Thanks for playing!.\n")                
+                print(" **** " +turn +' '+ " won. ****")                
+                break
+            elif boardToe['4'] == boardToe['5'] == boardToe['6'] != ' ': 
+                printBoard(boardToe)
+                print("\nGood game. Thanks for playing!.\n")                
+                print(" **** " +turn +' '+ " won. ****")
+                break
+            elif boardToe['1'] == boardToe['2'] == boardToe['3'] != ' ': 
+                printBoard(boardToe)
+                print("\nGood game. Thanks for playing!.\n")                
+                print(" **** " +turn +' '+ " won. ****")
+                break
+            elif boardToe['1'] == boardToe['4'] == boardToe['7'] != ' ': 
+                print("\nGood game. Thanks for playing!.\n")                
+                print(" **** " +turn +' '+ " won. ****")
+                break
+            elif boardToe['2'] == boardToe['5'] == boardToe['8'] != ' ': 
+                printBoard(boardToe)
+                print("\nGood game. Thanks for playing!.\n")                
+                print(" **** " +turn +' '+ " won. ****")
+                break
+            elif boardToe['3'] == boardToe['6'] == boardToe['9'] != ' ': 
+                printBoard(boardToe)
+                print("\nGood game. Thanks for playing!.\n")                
+                print(" **** " +turn +' '+ " won. ****")
+                break 
+            elif boardToe['7'] == boardToe['5'] == boardToe['3'] != ' ':
+                printBoard(boardToe)
+                print("\nGood game. Thanks for playing!.\n")                
+                print(" **** " +turn +' '+ " won. ****")
+                break
+            elif boardToe['1'] == boardToe['5'] == boardToe['9'] != ' ': 
+                printBoard(boardToe)
+                print("\nGood game. Thanks for playing!.\n")                
+                print(" **** " +turn +' '+ " won. ****")
+                break 
+
+        if count == 9:
+            print("\nGood game. Thanks for playing!.\n")                
+            print("It's a Tie!!")
+
+        if turn =='X':
+            turn = 'O'
+        else:
+            turn = 'X'        
+    
 if __name__ == "__main__":
-    main()    
-
-
+    game()
