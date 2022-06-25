@@ -1,17 +1,19 @@
 import random
-from typing import overload
 from display import Display
+from terminal_service import TerminalService
 list_words = ["LITERALLY","IRONIC","IRREGARDLESS","WHOM",
         "COLONEL","NONPLUSSED","DISINTERESTED",
         "ENORMITY","LIEUTENANT","UNABASHED"]
+        ## here create a dictionary with the words to choose
 
 class Jumper:
-    
+    #this class make the work most important because take the information
+    #from the player and show the picture from the display file
     def __init__(self):
 
        
         self.word_choosed = random.choice(list_words)
-
+        
         self._guess = ""
         self._line = list(len(self.word_choosed)*'_')
         self.heart = 4
