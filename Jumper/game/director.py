@@ -1,7 +1,5 @@
-from pyray import is_sound_playing
-from game.jumper import Jumper
-from game.puzzle import Puzzle
-from game.terminal_service import TerminalService
+from jumper import Jumper, list_words
+from terminal_service import TerminalService
 
 class Director:
     
@@ -22,23 +20,22 @@ class Director:
             self (Director): an instance of Director.
         """
 
-        self.puzzle = Puzzle()
         self.is_playing = True
         self.jumper = Jumper()
+        self.disp = list_words
         self.terminal_service = TerminalService()
 
     def start_game(self):
         
-        while self.is_sound_playing:
+        while self.is_playing:
             self.get_inputs()
             self.do_updates()
-            self.do_outputs()
 
 
     def get_inputs(self):
-        pass
+        self.disp
+
     def do_updates(self):
-        pass
-    def do_outputs(self):
-        pass
+        self.jumper.process()
+    
 

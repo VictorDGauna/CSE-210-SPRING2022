@@ -1,16 +1,15 @@
 
 
-
-from click import prompt
-
-
 class TerminalService:
 
+    def read(self,prompt):
 
-    def read_letter(self, prompt):
-        
         return input(prompt)
 
-    def write_letter(self, letter):
+
+    def read_letter(prompt):
+        return float(input(prompt))
+
+    def write_letter(text):
         
-        print(letter)
+        print(text)
