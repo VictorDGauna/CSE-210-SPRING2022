@@ -24,9 +24,12 @@ class Gems(Actor):
         #set the points for gems, adding a point for each gem hit.
         if text == chr(42):
             super().set_points(+1)
+            color = Color(0,0,255)
+            super().set_color(color)
         else:
             super().set_points(-1)
-
+            color = Color(255,0,0)
+            super().set_color(color)
         #Set Velocity with parent set_text method
         speed = random.randrange(1,16)
         super().set_velocity(Point(0,speed))

@@ -85,8 +85,7 @@ class Director:
             
             
             
-            color = Color(100,180,255)
-            gem.set_color(color)
+            
             #Check for collision or reaching the bottom of the screen
             if player.get_position().closing(gem.get_position(), cell_size):
                 self._add_score(gem.get_points())
