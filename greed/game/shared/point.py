@@ -70,3 +70,11 @@ class Point:
             Point: A new Point that is scaled.
         """
         return Point(self._x * factor, self._y * factor)
+    def closing(self, other, cell_size):
+        """
+        Args:
+            other (Point): The Point to compare.
+            cell_size: The size of the grid
+
+        """
+        return abs(self._x - other.get_x()) <= cell_size and abs(self._y - other.get_y()) <= cell_size
