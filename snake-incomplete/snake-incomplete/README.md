@@ -33,4 +33,8 @@ root                    (project root folder)
 
 ## Authors
 ---
-* TODO: Add your name and email here
+* TODO:
+Name:
+      VICTOR DANIEL GAUNA
+Email:
+      victor.gauna2014@outlook.com
